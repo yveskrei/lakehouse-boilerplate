@@ -1,0 +1,37 @@
+services:
+  minio:
+    image: minio/minio
+    container_name: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    command: server /data --console-address ":9001"
+    volumes:
+      - ./minio/data:/data
+
+  postgres:
+    image: postgres:14
+    container_name: postgres
+    environment:
+      POSTGRES_USER: iceberg
+      POSTGRES_PASSWORD: iceberg123
+      POSTGRES_DB: iceberg_db
+    ports:
+      - "9123:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./iceberg_metastore.sql:/docker-entrypoint-initdb.d/iceberg_metastore.sql
+
+  trino:
+    image: trinodb/trino:latest
+    container_name: trino
+    ports:
+      - "9090:8080"
+    volumes:
+      - ./trino_iceberg.properties:/etc/trino/catalog/iceberg.properties
+
+volumes:
+  postgres_data:

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+develop-eggs/
+venv/
+env/
+*~
+.DS_Store
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb.metadata
+
+# Minio
+minio/
+
+# General
+*.log
+*.out
+temp/
+tmp/
+*.swp
+*.swo
+.idea/ # IntelliJ IDEA
+.vscode/ # VSCode
+/out/ #out directories
+/target/ #target dir
+
+# Project specific
+datasets/
+*.jar
