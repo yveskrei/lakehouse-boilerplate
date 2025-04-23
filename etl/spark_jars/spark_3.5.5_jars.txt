@@ -1,0 +1,18 @@
+# Download JARs from Maven Central: 
+https://central.sonatype.com/
+
+# For Spark Version 3.5.5
+com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+org.apache.hadoop_hadoop-aws-3.3.4.jar
+org.apache.iceberg_iceberg-spark-runtime-3.5_2.12-1.5.0.jar
+org.checkerframework_checker-qual-3.5.0.jar
+org.postgresql_postgresql-42.5.1.jar
+org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+
+# Alternatively, consume directly from maven central
+com.amazonaws:aws-java-sdk-bundle:1.12.262
+org.apache.hadoop:hadoop-aws:3.3.4
+org.apache.iceberg:iceberg-spark-runtime-3.5_2.12:1.5.0
+org.checkerframework:checker-qual:3.5.0
+org.postgresql:postgresql:42.5.1
+org.wildfly.openssl:wildfly-openssl:1.0.7.Final
