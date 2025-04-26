@@ -34,3 +34,4 @@ tmp/
 # Project specific
 datasets/
 *.jar
+testing.py
