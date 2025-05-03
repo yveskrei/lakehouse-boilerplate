@@ -32,6 +32,8 @@ tmp/
 /target/ #target dir
 
 # Project specific
-datasets/
+*.env
 *.jar
+*.csv
+*.json
 testing.py

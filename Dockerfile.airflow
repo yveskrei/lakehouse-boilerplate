@@ -1,0 +1,22 @@
+FROM apache/airflow:2.9.1-python3.12
+
+USER root
+
+# Install Java and related packages
+RUN apt-get update -y && \
+    apt-get install -y procps default-jdk && \
+    JAVA_VERSION=$(update-alternatives --display java | grep 'java-.*-openjdk' | head -n 1 | awk '{print $1}') && \
+    export JAVA_HOME=$(dirname $(dirname $JAVA_VERSION)) && \
+    echo "export JAVA_HOME=$JAVA_HOME" >> /etc/profile.d/java.sh && \
+    echo "export PATH=$JAVA_HOME/bin:\$PATH" >> /etc/profile.d/java.sh
+
+# Set ENV explicitly in case shell vars don't persist
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV PATH=$JAVA_HOME/bin:$PATH
+
+USER airflow
+
+# Install Python packages
+COPY ./requirements/ /requirements/
+RUN pip install --no-cache-dir -r /requirements/airflow.txt
+RUN pip install --no-cache-dir -r /requirements/additional.txt
