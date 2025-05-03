@@ -1,0 +1,2 @@
+polars==1.29.0
+pyspark==3.5.5

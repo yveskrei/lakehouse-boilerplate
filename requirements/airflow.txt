@@ -1,0 +1,2 @@
+apache-airflow-providers-apache-spark==5.2.1
+apache-airflow==2.9.1

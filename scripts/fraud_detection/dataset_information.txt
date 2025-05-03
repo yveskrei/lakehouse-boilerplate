@@ -1,0 +1,2 @@
+Dataset was taken from Kagge - "Fraud Detection Dataset"
+Link: https://www.kaggle.com/datasets/amanalisiddiqui/fraud-detection-dataset
